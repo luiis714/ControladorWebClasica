@@ -5,6 +5,45 @@
 <title>Contacto</title>
 </head>
 <body>
-	Información de contacto cambios
+	<h1>Información de contacto</h1>
+
+	<br>Nombre:
+	<span th:text="${contacto.nombre}">Nom defecto</span>
+	<span th:text="${contacto.apellidos}">Ape defecto</span>
+	<br>Teléfono:
+	<span th:text="${contacto.telefono}">Tlf defecto</span>
+	<br>Email:
+	<span th:text="${contacto.email}">Email defecto</span>
+
+	<h3>Lista</h3>
+	<ul>
+		<li th:each="var : ${lista}" th:text="${var}"></li>
+	</ul>
+
+	<h3>Tabla contactos</h3>
+	<table border="2">
+		<tr>
+			<th>Nombre</th>
+			<th>Apellidos</th>
+			<th>Teléfono</th>
+			<th>Email</th>
+			<th>Editar</th>
+			<th>Eliminar</th>
+		</tr>
+		<tr th:each="con : ${listaContactos}">
+			<td th:text="${con.nombre}"></td>
+			<td th:text="${con.apellidos}"></td>
+			<td th:text="${con.telefono}"></td>
+			<td th:text="${con.email}"></td>
+
+			<td><a>Editar <i class="fa fa-edit"></i></a></td>
+			<td>
+				<form>
+					<button type="submit">Eliminar <i class="fa fa-trash"></i></button>
+				</form>
+			</td>
+
+		</tr>
+	</table>
 </body>
 </html>
